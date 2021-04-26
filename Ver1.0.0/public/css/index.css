@@ -1,0 +1,23 @@
+body {
+    background-color: lightgrey;
+}
+
+.subheading {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.btn {
+    background-color: #212529;
+    color: #fff;
+}
+
+#form-messages {
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#jumbotron {
+    background-color: #fff;
+}

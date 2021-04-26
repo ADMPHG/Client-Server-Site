@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Falcon 9",
+        "payload": "22,800 kg",
+        "cost": "$62 million",
+        "mass": "549,054 kg",
+        "height": "70m"
+    },
+    {
+        "name": "Falcon Heavy",
+        "payload": "63,800 kg",
+        "cost": "$90 million",
+        "mass": "1,420,788 kg",
+        "height": "70m"
+    },
+    {
+        "name": "Starship",
+        "payload": "+100 t",
+        "cost": "$2 million",
+        "mass": "5,000 t",
+        "height": "120 m"
+    }
+]

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="./css/index.css">
+    <title>SpaceX Fanclub</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Navbar -->
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">About</h4>
+                        <p class="text-muted">To access the admin side of the site, follow the link to the right. Admins only! To see the source code for this project, follow the link to my Github page (don't worry, it's set to private).</p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Links</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="http://127.0.0.1:8090/api/admin" class="text-white">Admin Site</a></li>
+                            <li><a href="https://github.com/ADMPHG" class="text-white">My Github</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                <a href="http://127.0.0.1:8090/" class="navbar-brand d-flex align-items-center">
+                    <strong>SpaceX Fanclub</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <!-- Jumbotron -->
+        <section id="jumbotron" class="py-2 mb-3 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">Welcome to the SpaceX Fanclub!</h1>
+                    <p class="lead text-muted">Here you will find a list of all current members of the fanclub, plus some information about SpaceX's rockets. If you would like to join the fanclub, please contact me by clicking on the link below.</p>
+                    <p>
+                    <a href="mailto:jnfg77@durham.ac.uk" class="btn btn-primary my-2">Send me an email</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Members -->
+        <div class="container mb-5">
+            <!-- Heading -->
+            <div class="subheading rounded bg-dark p-2">
+                <h1>Members</h1>
+            </div>
+          
+            <!-- Search Bar -->
+            <form class="mx-2 mb-2" id="memberSearchSubmit" action="/api/members/1" method="get">
+                <div class="input-group">
+                    <button class="btn btn-outline-secondary dropdown-toggle" id="searchTypeSelector" type="button" data-bs-toggle="dropdown" aria-expanded="false">Search Type</button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">By ID</a></li>
+                        <li><a class="dropdown-item" href="#">By name</a></li>
+                        <li><a class="dropdown-item" href="#">By favourite rocket</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                    </ul>
+                    <input type="text" class="form-control" placeholder="Search members by ID" name="id" required>
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </div>
+            </form>
+
+            <ul class="list-group" id="form-messages">
+                <li class="list-group-item list-group-item-danger">Generic Error</li>
+            </ul>
+          
+            <!-- List of members -->
+            <div id="memberSearchResults" class="border border-5 border-dark rounded mx-2 mb-2 p-2">
+                <div class="row">
+                    <div class="col-sm">
+                        <h2>ID</h2>
+                    </div>
+                    <div class="col-sm">
+                        <h2>Name</h2>
+                    </div>
+                    <div class="col-sm">
+                        <h2>Email</h2>
+                    </div>
+                    <div class="col-sm">
+                        <h2>Favourite Rocket</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rockets -->
+        <div class="container mb-3">
+            <!-- Heading -->
+            <div class="subheading rounded bg-dark p-2">
+                <h1>Rockets</h1>
+            </div>
+
+            <!-- Image and info -->
+            <div class="row">
+                <div id="rocketImage" class="col-sm">
+                    <!-- Heading -->
+                    <div class="subheading rounded bg-dark p-2">
+                        <h2 id="rocketName"></h2>
+                    </div>
+                    <!-- Image -->
+                    <!-- <img src="images/falcon9.jpg" class="img-fluid" alt="Falcon 9 Launch"> -->
+                </div>
+                <div class="col-sm">
+                    <!-- Stats -->
+                    <div class="row  mb-2">
+                        <div class="col-sm">
+                            <div class="subheading rounded bg-dark p-2">
+                                <h2>Stats</h2>
+                            </div>
+                            <div class="row mx-2">
+                                <div id="payload" class="col-sm">
+                                    Payload Capacity: 
+                                </div>
+                                <div id="cost" class="col-sm">
+                                    Cost: 
+                                </div>
+                            </div>
+                            <div class="row mx-2">
+                                <div id="mass" class="col-sm">
+                                    Mass: 
+                                </div>
+                                <div id="height" class="col-sm">
+                                    Height: 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Favourite rocket of: -->
+                    <div class="row">
+                        <div id="favouriteRocket" class="col-sm">
+                            <div class="subheading rounded bg-dark p-2">
+                                <h2>Favourite Rocket Of...</h2>
+                                <p>Members who said this was their favourite rocket:</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class=" footer mt-auto py-3 bg-light text-muted">
+        <div class="container">
+          <p class="float-end mb-1">
+          </p>
+          <p class="mb-1">Credit for photos goes to: &copy; <a href="https://www.teslarati.com/spacex-third-falcon-heavy-launch-livestream-webcast/">www.teslarati.com</a> &copy; <a href="https://www.spaceflightinsider.com/hangar/falcon-9/">www.spaceflightinsider.com</a></p>
+        </div>
+    </footer>
+
+    <script src="js/client.js"></script>
+
+    <!-- Bootstrap Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+</html>
+
