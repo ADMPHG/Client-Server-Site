@@ -57,22 +57,23 @@
             </div>
           
             <!-- Search Bar -->
-            <form class="mx-2 mb-2" id="memberSearchSubmit" action="/api/members/:id" method="get">
+            <form class="mx-2 mb-2" id="memberSearchSubmit">
                 <div class="input-group">
                     <button class="btn btn-outline-secondary dropdown-toggle" id="searchTypeSelector" type="button" data-bs-toggle="dropdown" aria-expanded="false">Search Type</button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">By ID</a></li>
-                        <li><a class="dropdown-item" href="#">By name</a></li>
-                        <li><a class="dropdown-item" href="#">By favourite rocket</a></li>
+                        <li><button onclick="searchByID()" class="dropdown-item" type="button">By ID</button></li>
+                        <li><button onclick="searchByName()" class="dropdown-item" type="button">By Name</button></li>
+                        <li><button onclick="searchByEmail()" class="dropdown-item" type="button">By Email</button></li>
+                        <li><button onclick="searchByFavRocket()" class="dropdown-item" type="button">By Favourite Rocket</button></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        <li><button id="resetSearch" class="dropdown-item" type="button">Reset Search</button></li>
                     </ul>
-                    <input type="text" class="form-control" placeholder="Search members by ID" name="id" required>
+                    <input autocomplete="off" id="searchBar" type="text" class="form-control" placeholder="Search members by ID" name="id" required>
                     <button class="btn btn-outline-secondary" type="submit">Search</button>
                 </div>
             </form>
 
-            <ul class="list-group" id="form-messages">
+            <ul class="list-group" id="form-error-search">
                 <li class="list-group-item list-group-item-danger">Generic Error</li>
             </ul>
           
@@ -99,11 +100,37 @@
             <div class="subheading rounded bg-dark p-2">
                 <h2> Create Member</h2>
             </div>
+            <form class="mx-3 mb-2" id="newMemberSubmit">
+                <div class="row input-group mb-3">
+                    <div class="col-sm">
+                        <input id="id" type="text" class="col-sm form-control" placeholder="ID" required>
+                    </div>
+                    <div class="col-sm">
+                        <input id="name" type="text" class="col-sm form-control" placeholder="Name" required>
+                    </div>
+                    <div class="col-sm">
+                        <input id="email" type="text" class="col-sm form-control" placeholder="Email" required>
+                    </div>
+                    <div class="col-sm">
+                        <input id="favRocket" type="text" class="col-sm form-control" placeholder="Favourite Rocket">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <ul class="list-group" id="form-error-create">
+                <li class="list-group-item list-group-item-danger">Generic Error</li>
+            </ul>
 
             <!-- Delete Members -->
             <div class="subheading rounded bg-dark p-2">
                 <h2> Delete Member</h2>
             </div>
+            <form class="mx-3 mb-2" id="memberDelete">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Enter ID of member to delete them" aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                    <button class="btn btn-outline-secondary btn-danger" type="submit" id="btnDelete">Delete</button>
+                </div>
+            </form>
         </div>
     </main>
 

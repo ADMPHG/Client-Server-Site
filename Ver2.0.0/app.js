@@ -28,5 +28,4 @@ app.use((req, res) => {
     res.status(404).sendFile('./public/404.html', { root: __dirname });
 });
 
-// Port
-app.listen(8090);
+module.exports = app;

@@ -15,7 +15,6 @@ router.get('/', async (req, res) => {
 router.get('/:name', getRocket, (req, res) => {
     res.send(res.rocket);
 });
-// NB - this doesn't account for e.g. lower case F, has to be spelt correctly
 
 // Middleware function to retrieve rocket
 async function getRocket (req, res, next) {

@@ -12,7 +12,18 @@ body {
     color: #fff;
 }
 
-#form-messages {
+#btnDelete {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+#form-error-create {
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#form-error-search {
     display: none;
     margin-top: 10px;
     margin-bottom: 10px;

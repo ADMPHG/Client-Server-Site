@@ -66,22 +66,23 @@
             </div>
           
             <!-- Search Bar -->
-            <form class="mx-2 mb-2" id="memberSearchSubmit" action="/api/members/1" method="get">
+            <form class="mx-2 mb-2" id="memberSearchSubmit">
                 <div class="input-group">
                     <button class="btn btn-outline-secondary dropdown-toggle" id="searchTypeSelector" type="button" data-bs-toggle="dropdown" aria-expanded="false">Search Type</button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">By ID</a></li>
-                        <li><a class="dropdown-item" href="#">By name</a></li>
-                        <li><a class="dropdown-item" href="#">By favourite rocket</a></li>
+                        <li><button onclick="searchByID()" class="dropdown-item" type="button">By ID</button></li>
+                        <li><button onclick="searchByName()" class="dropdown-item" type="button">By Name</button></li>
+                        <li><button onclick="searchByEmail()" class="dropdown-item" type="button">By Email</button></li>
+                        <li><button onclick="searchByFavRocket()" class="dropdown-item" type="button">By Favourite Rocket</button></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        <li><button id="resetSearch" class="dropdown-item" type="button">Reset Search</button></li>
                     </ul>
-                    <input type="text" class="form-control" placeholder="Search members by ID" name="id" required>
+                    <input autocomplete="off" id="searchBar" type="text" class="form-control" placeholder="Search members by ID" name="id" required>
                     <button class="btn btn-outline-secondary" type="submit">Search</button>
                 </div>
             </form>
 
-            <ul class="list-group" id="form-messages">
+            <ul class="list-group" id="form-error-search">
                 <li class="list-group-item list-group-item-danger">Generic Error</li>
             </ul>
           
@@ -113,13 +114,31 @@
 
             <!-- Image and info -->
             <div class="row">
-                <div id="rocketImage" class="col-sm">
-                    <!-- Heading -->
-                    <div class="subheading rounded bg-dark p-2">
-                        <h2 id="rocketName"></h2>
+                <div class="col-sm">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <!-- Rocket name heading -->
+                            <div class="subheading rounded bg-dark p-2">
+                                <h2 id="rocketName"></h2>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="dropdown d-grid">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Choose Rocket
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                  <li><button id="selectFalcon9" class="dropdown-item" type="button">Falcon 9</button></li>
+                                  <li><button id="selectFalconH" class="dropdown-item" type="button">Falcon Heavy</button></li>
+                                  <li><button id="selectStarship" class="dropdown-item" type="button">Starship</button></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Image -->
-                    <!-- <img src="images/falcon9.jpg" class="img-fluid" alt="Falcon 9 Launch"> -->
+                    <!-- Rocket image -->
+                    <div class="row">
+                        <div id="rocketImage" class="col-sm"></div>
+                    </div>
                 </div>
                 <div class="col-sm">
                     <!-- Stats -->
@@ -148,11 +167,12 @@
                     </div>
                     <!-- Favourite rocket of: -->
                     <div class="row">
-                        <div id="favouriteRocket" class="col-sm">
+                        <div class="col-sm">
                             <div class="subheading rounded bg-dark p-2">
                                 <h2>Favourite Rocket Of...</h2>
                                 <p>Members who said this was their favourite rocket:</p>
                             </div>
+                            <ul id="favouriteRocket"></ul>
                         </div>
                     </div>
                 </div>
